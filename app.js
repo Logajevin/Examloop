@@ -25,6 +25,26 @@ function logout() {
     window.location.href = "login.html";
   });
 }
+function signup() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Account created successfully");
+      window.location.href = "index.html";
+    })
+    .catch(err => alert(err.message));
+}
+
+function goSignup() {
+  window.location.href = "signup.html";
+}
+
+function goLogin() {
+  window.location.href = "login.html";
+}
+
 
 // PAGE PROTECTION (SAFE)
 auth.onAuthStateChanged(user => {
@@ -34,3 +54,4 @@ auth.onAuthStateChanged(user => {
     window.location.href = "login.html";
   }
 });
+
