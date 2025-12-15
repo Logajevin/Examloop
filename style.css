@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 25px;
+  color: white;
+  animation: drop 1s ease;
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+/* Container */
+.container {
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+/* Subject Card */
+.subject {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  overflow: hidden;
+}
+
+.subject:active {
+  transform: scale(0.97);
+}
+
+.subject h2 {
+  color: #4f46e5;
+}
+
+/* Hidden content */
+.inner {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+
+/* When active */
+.subject.active .inner {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 15px;
+}
+
+/* Buttons */
+.inner a {
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  text-align: center;
+  animation: slideUp 0.6s ease;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes drop {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mobile friendly */
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+    margin: auto;
+  }
+}
+
+/* Logout */
+.logout {
+  margin: 30px auto;
+  display: block;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #ef4444;
+  color: white;
+  font-size: 15px;
+}
+/* ---------- LOGIN PAGE ---------- */
+
+.login-body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBg 1s ease;
+}
+
+.login-container {
+  background: white;
+  width: 90%;
+  max-width: 340px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  animation: popUp 0.8s ease;
+}
+
+.logo {
+  color: #4f46e5;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  transform: scale(1.03);
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79,70,229,0.4);
+}
+
+/* Animations */
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
