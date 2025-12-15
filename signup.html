@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up | Exam Loops</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+<div class="login-container">
+  <h1 class="logo">📚 Exam Loops</h1>
+  <p class="subtitle">Create Student Account</p>
+
+  <input type="email" id="email" placeholder="Email address">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="signup()">Sign Up</button>
+
+  <p style="margin-top:15px; font-size:14px;">
+    Already have account?
+    <span style="color:#4f46e5; cursor:pointer;" onclick="goLogin()">
+      Login
+    </span>
+  </p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
