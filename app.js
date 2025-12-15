@@ -5,32 +5,32 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 const auth = firebase.auth();
 
 // LOGIN
 function login() {
-  auth.signInWithEmailAndPassword(
-    document.getElementById("email").value,
-    document.getElementById("password").value
-  )
-  .then(() => {
-    window.location.href = "index.html";
-  })
-  .catch(e => alert(e.message));
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      window.location.href = "index.html";
+    })
+    .catch(err => alert(err.message));
 }
 
-// LOGOUT ✅ FIXED
+// LOGOUT (WORKING)
 function logout() {
   auth.signOut().then(() => {
-    // force redirect
-    window.location.replace("login.html");
+    window.location.href = "login.html";
   });
 }
 
-// PAGE PROTECTION ✅
+// PAGE PROTECTION (SAFE)
 auth.onAuthStateChanged(user => {
-  if (!user && !window.location.pathname.includes("login")) {
-    window.location.replace("login.html");
+  const page = window.location.pathname;
+
+  if (!user && page.endsWith("index.html")) {
+    window.location.href = "login.html";
   }
 });
